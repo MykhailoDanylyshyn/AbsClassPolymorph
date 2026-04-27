@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="AbsClassPolymorph/ConsoleApp.csproj" />
+  <Project Path="CL_ApplicationInterface/CL_Triangle.csproj" />
+  <Project Path="CL_Circle/CL_Circle.csproj" />
+  <Project Path="CL_CollectionOfFigures/CL_CollectionOfFigures.csproj" />
+  <Project Path="CL_Rectangle/CL_Rectangle.csproj" />
+  <Project Path="CL_Shape/CL_Shape.csproj" />
+</Solution>

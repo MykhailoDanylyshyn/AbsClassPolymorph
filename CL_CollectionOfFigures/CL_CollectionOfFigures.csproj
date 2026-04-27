@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CL_ApplicationInterface\CL_Triangle.csproj" />
+    <ProjectReference Include="..\CL_Circle\CL_Circle.csproj" />
+    <ProjectReference Include="..\CL_Rectangle\CL_Rectangle.csproj" />
+    <ProjectReference Include="..\CL_Shape\CL_Shape.csproj" />
+  </ItemGroup>
+
+</Project>
