@@ -41,8 +41,11 @@ class ApplicationInterface
             Console.WriteLine("3 - Додати коло");
             Console.WriteLine("4 - Показати всі фігури");
             Console.WriteLine("5 - Площі всіх фігур");
-            Console.WriteLine("6 - Зберегти у файл");
-            Console.WriteLine("7 - Завантажити з файлу");
+            Console.WriteLine("6 - Видалити фігуру");
+            Console.WriteLine("7 - Показати усі фігури обраного типу");
+            Console.WriteLine("8 - Показати площі фігур обраного типу");
+            Console.WriteLine("9 - Зберегти у файл");
+            Console.WriteLine("10 - Завантажити з файлу");
             Console.WriteLine("0 - Вихід");
             Console.Write("Вибір: ");
 
@@ -68,9 +71,9 @@ class ApplicationInterface
                                 break;
                             }
 
-                            Shape s = new Triangle();
-                            ((Triangle)s).Set(a, b);
-                            collection.Add(s);
+                            Triangle t = new Triangle();
+                            t.Set(a, b);
+                            collection.Add(t);
                             break;
                         }
 
@@ -88,9 +91,9 @@ class ApplicationInterface
                             Console.Write("y2: ");
                             if (!double.TryParse(Console.ReadLine(), out double y2)) { Console.WriteLine("Помилка!"); break; }
 
-                            Shape s = new Rectangle();
-                            ((Rectangle)s).Set(x1, y1, x2, y2);
-                            collection.Add(s);
+                            Rectangle r = new Rectangle();
+                            r.Set(x1, y1, x2, y2);
+                            collection.Add(r);
                             break;
                         }
 
@@ -105,9 +108,9 @@ class ApplicationInterface
                             Console.Write("r: ");
                             if (!double.TryParse(Console.ReadLine(), out double r)) { Console.WriteLine("Помилка!"); break; }
 
-                            Shape s = new Circle();
-                            ((Circle)s).Set(x, y, r);
-                            collection.Add(s);
+                            Circle c = new Circle();
+                            c.Set(x, y, r);
+                            collection.Add(c);
                             break;
                         }
 
@@ -120,11 +123,89 @@ class ApplicationInterface
                         break;
 
                     case "6":
+                        {
+                            Console.Write("Індекс для видалення: ");
+                            if (int.TryParse(Console.ReadLine(), out int index))
+                            {
+                                collection.Remove(index);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Помилка вводу!");
+                            }
+                            break;
+                        }
+
+                    case "7":
+                        {
+                            Console.WriteLine("Оберіть тип фігури:");
+                            Console.WriteLine("1 - Трикутник");
+                            Console.WriteLine("2 - Прямокутник");
+                            Console.WriteLine("3 - Коло");
+                            Console.Write("Вибір: ");
+
+                            string typeChoice = Console.ReadLine();
+
+                            switch (typeChoice)
+                            {
+                                case "1":
+                                    collection.PrintByType<Triangle>();
+                                    break;
+
+                                case "2":
+                                    collection.PrintByType<Rectangle>();
+                                    break;
+
+                                case "3":
+                                    collection.PrintByType<Circle>();
+                                    break;
+
+                                default:
+                                    Console.WriteLine("Невірний вибір типу.");
+                                    break;
+                            }
+
+                            break;
+                        }
+
+                    case "8":
+                        {
+                            Console.WriteLine("Оберіть тип фігури:");
+                            Console.WriteLine("1 - Трикутник");
+                            Console.WriteLine("2 - Прямокутник");
+                            Console.WriteLine("3 - Коло");
+                            Console.Write("Вибір: ");
+
+                            string typeChoice = Console.ReadLine();
+
+                            switch (typeChoice)
+                            {
+                                case "1":
+                                    collection.AreaByType<Triangle>();
+                                    break;
+
+                                case "2":
+                                    collection.AreaByType<Rectangle>();
+                                    break;
+
+                                case "3":
+                                    collection.AreaByType<Circle>();
+                                    break;
+
+                                default:
+                                    Console.WriteLine("Невірний вибір типу.");
+                                    break;
+                            }
+
+                            break;
+                        }
+
+                    case "9":
                         collection.Save(fileName);
                         Console.WriteLine("Збережено.");
                         break;
 
-                    case "7":
+                    case "10":
                         collection.Load(fileName);
                         Console.WriteLine("Завантажено.");
                         break;

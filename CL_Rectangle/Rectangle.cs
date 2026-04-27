@@ -17,8 +17,8 @@ public class Rectangle : Shape
     public override string ToString()
     {
         return $"Прямокутник.\n" +
-               $"Лівий верхній кут: ({x1}, {y1})\n" +
-               $"Правий нижній кут: ({x2}, {y2})\n" +
+               $"Лівий верхній кут: ({x1}; {y1})\n" +
+               $"Правий нижній кут: ({x2}; {y2})\n" +
                $"Площа: {Area():F2}";
     }
 
